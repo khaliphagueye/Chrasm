@@ -14,44 +14,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import itsup.chrasm.Chrasm.modele.User;
-import itsup.chrasm.Chrasm.service.UserService;
+import itsup.chrasm.Chrasm.modele.Contact;
+import itsup.chrasm.Chrasm.service.ContactService;
 
 @RestController
-@RequestMapping("/user")
-public class UserRequest {
+@RequestMapping("/contact")
+public class ContactRequest {
 	@Autowired
-	private UserService userService;
+	ContactService contactService;
 
-	public UserRequest(UserService userService) {
+	public ContactRequest(ContactService contactService) {
 		super();
-		this.userService = userService;
-	}
-	@GetMapping("/all")
-	public ResponseEntity<List<User>> getAllUsers(){
-		List<User> users = userService.findAllUsers();
-		return new ResponseEntity<>(users, HttpStatus.OK);
+		this.contactService = contactService;
 	}
 	
+	@GetMapping("/all")
+	public ResponseEntity<List<Contact>> getAllContact(){
+		List<Contact> contacts = contactService.findAllContacts();
+		return new ResponseEntity<>(contacts, HttpStatus.OK);
+	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable("id") Long id	){
-		User user = userService.findUser(id);
-		return new ResponseEntity<>(user, HttpStatus.OK);
+	public ResponseEntity<Contact> getContactById(@PathVariable("id") Long id	){
+		Contact contact = contactService.findContact(id);
+		return new ResponseEntity<>(contact, HttpStatus.OK);
 	}
 	@PostMapping("/add")
-	public ResponseEntity<User> addUser(@RequestBody User user){
-		User newUser = userService.addUser(user);
+	public ResponseEntity<Contact> addUser(@RequestBody Contact user){
+		Contact newUser = contactService.addContact(user);
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 	}
 	@PutMapping("/update")
-	public ResponseEntity<User> updateUser(@RequestBody User user){
-		User updateUser = userService.updateUser(user);
+	public ResponseEntity<Contact> updateUser(@RequestBody Contact contact){
+		Contact updateUser = contactService.updateContact(contact);
 		return new ResponseEntity<>(updateUser, HttpStatus.OK);
 	}
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteUser(@PathVariable("id") Long id	){
-		 userService.deleteUser(id);
+	public ResponseEntity<?> deleteContact(@PathVariable("id") Long id	){
+		 contactService.deleteContact(id);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+	
 
 }

@@ -7,4 +7,7 @@ import itsup.chrasm.Chrasm.modele.User;
 public interface UserRipository extends JpaRepository<User, Long> {
 	public User findUserById(long id);
 
+	public void deleteUserById(long id);
+
+
 }
