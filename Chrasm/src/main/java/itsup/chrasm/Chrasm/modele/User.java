@@ -20,25 +20,15 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable=false, updatable = false)
 	private long id;
-	@Column (name ="admin_nom")
-
 	private String admin_nom;
-	@Column (name ="admin_mdp")
 	private String admin_mdp;
-	
+	public User(String admin_nom, String admin_mdp) {
+		super();
+		this.admin_nom = admin_nom;
+		this.admin_mdp = admin_mdp;
+	}
 	public User() {
 		super();
-	}
-	public User(long id, String adminNom, String adminMdp) {
-		super();
-		this.id = id;
-		this.admin_nom = adminNom;
-		this.admin_mdp = adminMdp;
-	}
-	public User(String adminNom, String adminMdp) {
-		super();
-		this.admin_nom = adminNom;
-		this.admin_mdp = adminMdp;
 	}
 	public long getId() {
 		return id;
@@ -46,21 +36,18 @@ public class User implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getAdminNom() {
+	public String getAdmin_nom() {
 		return admin_nom;
 	}
-	public void setAdminNom(String adminNom) {
-		this.admin_nom = adminNom;
+	public void setAdmin_nom(String admin_nom) {
+		this.admin_nom = admin_nom;
 	}
-	public String getAdminMdp() {
+	public String getAdmin_mdp() {
 		return admin_mdp;
 	}
-	public void setAdminMdp(String adminMdp) {
-		this.admin_mdp = adminMdp;
+	public void setAdmin_mdp(String admin_mdp) {
+		this.admin_mdp = admin_mdp;
 	}
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", adminNom=" + admin_nom + ", adminMdp=" + admin_mdp + "]";
-	}
+	
 	
 }
