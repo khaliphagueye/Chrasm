@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import itsup.chrasm.Chrasm.modele.RendezVous;
+import itsup.chrasm.Chrasm.modele.Patient;
 import itsup.chrasm.Chrasm.service.RendezVousService;
 
 @RestController
@@ -27,23 +27,23 @@ public class RendezVousRequest {
 		this.rendezVousService = rendezVousService;
 	}
 	@GetMapping("/all")
-	public ResponseEntity<List<RendezVous>> getAllRendezVous(){
-		List<RendezVous> RendezVous = rendezVousService.findAllRendezVous();
-		return new ResponseEntity<>(RendezVous, HttpStatus.OK);
+	public ResponseEntity<List<Patient>> getAllRendezVous(){
+		List<Patient> patient = rendezVousService.findAllRendezVous();
+		return new ResponseEntity<>(patient, HttpStatus.OK);
 	}
 	@GetMapping("/find/{id}")
-	public ResponseEntity<RendezVous> getRendezVousById(@PathVariable("id") Long id	){
-		RendezVous rendezVous = rendezVousService.findRendezVous(id);
-		return new ResponseEntity<>(rendezVous, HttpStatus.OK);
+	public ResponseEntity<Patient> getRendezVousById(@PathVariable("id") Long id	){
+		Patient patient = rendezVousService.findRendezVous(id);
+		return new ResponseEntity<>(patient, HttpStatus.OK);
 	}
 	@PostMapping("/add")
-	public ResponseEntity<RendezVous> addRendezVous(@RequestBody RendezVous rendezVous){
-		RendezVous newRendezVous = rendezVousService.addRendezVous(rendezVous);
+	public ResponseEntity<Patient> addRendezVous(@RequestBody Patient patient){
+		Patient newRendezVous = rendezVousService.addRendezVous(patient);
 		return new ResponseEntity<>(newRendezVous, HttpStatus.CREATED);
 	}
 	@PutMapping("/update")
-	public ResponseEntity<RendezVous> updateRendezVous(@RequestBody RendezVous rendezVous){
-		RendezVous updateRendezVous = rendezVousService.updateRendezVous(rendezVous);
+	public ResponseEntity<Patient> updateRendezVous(@RequestBody Patient patient){
+		Patient updateRendezVous = rendezVousService.updateRendezVous(patient);
 		return new ResponseEntity<>(updateRendezVous, HttpStatus.OK);
 	}
 	@DeleteMapping("/delete/{id}")

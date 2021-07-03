@@ -33,7 +33,7 @@ public class UserConnexionService {
 		return userConnexionRipo.save(user); 
 		
 	}
-	public void deleteUserConnexion(long id) {
+	public void deleteUserConnexion (long id) {
 		userConnexionRipo.deleteUserById(id);
 	}
 }

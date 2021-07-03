@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import itsup.chrasm.Chrasm.modele.RendezVous;
+import itsup.chrasm.Chrasm.modele.Patient;
 import itsup.chrasm.Chrasm.ripo.RendezVousRipository;
 
 @Service
@@ -18,19 +18,19 @@ public class RendezVousService {
 	public RendezVousService(RendezVousRipository rendezVousRipository) {
 		this.rendezVousRipository = rendezVousRipository;
 	}
-	public RendezVous findRendezVous(Long id) {
+	public Patient findRendezVous(Long id) {
 		return rendezVousRipository.findRendezVousById(id);
 	}
-	public List<RendezVous> findAllRendezVous(){
+	public List<Patient> findAllRendezVous(){
 		return rendezVousRipository.findAll();
 		
 	}
-	public RendezVous addRendezVous(RendezVous rendezVous) {
-		return rendezVousRipository.save(rendezVous);
+	public Patient addRendezVous(Patient patient) {
+		return rendezVousRipository.save(patient);
 		
 	}
-	public RendezVous updateRendezVous(RendezVous rendezVous) {
-		return rendezVousRipository.save(rendezVous); 
+	public Patient updateRendezVous(Patient patient) {
+		return rendezVousRipository.save(patient); 
 		
 	}
 	public void deleteRendezVous(long id) {

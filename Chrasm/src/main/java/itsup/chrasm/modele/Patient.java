@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class RendezVous implements Serializable {
+public class Patient implements Serializable {
 	/**
 	 * 
 	 */
@@ -24,23 +24,23 @@ public class RendezVous implements Serializable {
 	@Column(nullable=false, updatable = false)
 	private String prenom;
 	@Column(nullable=false, updatable = false)
-	private String adresse;
+	private String mail;
 	@Column(nullable=false, updatable = false)
 	private String departement;
 	@Column(nullable=false, updatable = false)
 	private String numTel;
 	@Column(nullable=false, updatable = false)
 	private String dateRv;
-	public RendezVous(String nom, String prenom, String adresse, String departement, String numTel,
+	public Patient(String nom, String prenom, String adresse, String departement, String numTel,
 			String dateRv) {
 		this.nom = nom;
 		this.prenom = prenom;
-		this.adresse = adresse;
+		this.mail = adresse;
 		this.departement = departement;
 		this.numTel = numTel;
 		this.dateRv = dateRv;
 	}
-	public RendezVous() {
+	public Patient() {
 		super();
 	}
 	public long getId() {
@@ -62,10 +62,10 @@ public class RendezVous implements Serializable {
 		this.prenom = prenom;
 	}
 	public String getAdresse() {
-		return adresse;
+		return mail;
 	}
 	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+		this.mail = adresse;
 	}
 	public String getDepartement() {
 		return departement;
@@ -87,7 +87,7 @@ public class RendezVous implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "RendezVous [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
+		return "RendezVous [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + mail
 				+ ", departement=" + departement + ", numTel=" + numTel + ", dateRv=" + dateRv + "]";
 	}
 	
