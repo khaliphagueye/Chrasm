@@ -1,4 +1,4 @@
-package itsup.chrasm.Chrasm.service;
+package itsup.chrasm.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import itsup.chrasm.Chrasm.modele.Contact;
-import itsup.chrasm.Chrasm.ripo.ContactRipository;
+import itsup.chrasm.modele.Contact;
+import itsup.chrasm.ripo.ContactRipository;
 
 @Service
 @Transactional

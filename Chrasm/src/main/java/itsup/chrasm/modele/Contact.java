@@ -1,4 +1,4 @@
-package itsup.chrasm.Chrasm.modele;
+package itsup.chrasm.modele;
 
 import java.io.Serializable;
 
@@ -29,6 +29,9 @@ public class Contact implements Serializable{
 		this.prenom = prenom;
 		this.mail = mail;
 		Message = message;
+	}
+	public Contact() {
+		// TODO Auto-generated constructor stub
 	}
 	public long getId() {
 		return id;

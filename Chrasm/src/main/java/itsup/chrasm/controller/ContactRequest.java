@@ -1,4 +1,4 @@
-package itsup.chrasm.Chrasm;
+package itsup.chrasm.controller;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import itsup.chrasm.Chrasm.modele.Contact;
-import itsup.chrasm.Chrasm.service.ContactService;
+import itsup.chrasm.modele.Contact;
+import itsup.chrasm.service.ContactService;
 
 @RestController
 @RequestMapping("/contact")

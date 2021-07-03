@@ -1,41 +1,45 @@
-package itsup.chrasm.Chrasm.service;
+package itsup.chrasm.service;
 
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import itsup.chrasm.Chrasm.modele.Patient;
-import itsup.chrasm.Chrasm.ripo.RendezVousRipository;
+import itsup.chrasm.modele.RendezVous;
+import itsup.chrasm.ripo.RendezVousRepository;
+import lombok.AllArgsConstructor;
+
 
 @Service
 @Transactional
+@AllArgsConstructor
 public class RendezVousService {
 	@Autowired
-	RendezVousRipository rendezVousRipository;
-
-	public RendezVousService(RendezVousRipository rendezVousRipository) {
-		this.rendezVousRipository = rendezVousRipository;
-	}
-	public Patient findRendezVous(Long id) {
+	RendezVousRepository rendezVousRipository;
+	
+	public RendezVous findRendezVous(Long id) {
 		return rendezVousRipository.findRendezVousById(id);
 	}
-	public List<Patient> findAllRendezVous(){
+	public List<RendezVous> findAllRendezVous(){
 		return rendezVousRipository.findAll();
 		
 	}
-	public Patient addRendezVous(Patient patient) {
-		return rendezVousRipository.save(patient);
+	public RendezVous addRendezVous(RendezVous rendezVous) {
+		return rendezVousRipository.save(rendezVous);
 		
 	}
-	public Patient updateRendezVous(Patient patient) {
-		return rendezVousRipository.save(patient); 
+	public RendezVous updateRendezVous(RendezVous rendezVous) {
+		return rendezVousRipository.save(rendezVous); 
 		
 	}
 	public void deleteRendezVous(long id) {
 		rendezVousRipository.deleteRendezVousById(id);
 	}
+	public List<RendezVous> findAllByTypeObjett() {
+		
+		return rendezVousRipository.findAllByTypeObjet();
+	}
 	
-
 }

@@ -1,8 +1,8 @@
-package itsup.chrasm.Chrasm.ripo;
+package itsup.chrasm.ripo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import itsup.chrasm.Chrasm.modele.Contact;
+import itsup.chrasm.modele.Contact;
 
 public interface ContactRipository extends JpaRepository<Contact, Long>{
 
